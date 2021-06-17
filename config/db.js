@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Get enviroment variables
 require('dotenv').config( {
   path: 'variables.env'
 } );
@@ -20,7 +21,7 @@ const conectDB = async () => {
 
     console.log(error);
     process.exit(1);
-    // Se detiene la aplicación
+    // Stop app
 
   }
 

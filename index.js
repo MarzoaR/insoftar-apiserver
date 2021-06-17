@@ -7,10 +7,12 @@ const app = express();
 // Connect to the Database
 conectDB();
 
+app.use('/api/users', require('./routes/user'));
+
 // Main path
-app.get('/', (req, res) => {
-  res.send('Hola Mundo');
-});
+// app.get('/', (req, res) => {
+//   res.send('Hola Mundo');
+// });
 
 app.listen( 4000, () => {
   console.log('todo ok');
