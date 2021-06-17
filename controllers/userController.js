@@ -1,3 +1,3 @@
 exports.addUser = (req, res) => {
-  console.log('addUser');
+  console.log(req.body);
 }
