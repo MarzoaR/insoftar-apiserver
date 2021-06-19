@@ -10,5 +10,7 @@ router.get('/', userController.getUsers);
 router.put('/:id', userController.updateUser);
 router.get('/:id', userController.getUser);
 router.delete('/:id', userController.deleteUser);
+router.get('/check-email/:email', userController.checkEmail);
+router.get('/check-dni/:dni', userController.checkDni);
 
 module.exports = router;

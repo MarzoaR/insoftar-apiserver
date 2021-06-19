@@ -41,7 +41,7 @@ exports.updateUser = async (req, res) => {
     let user = await User.findById( req.params.id );
 
     if(!user) {
-      res.send(404).json( {
+      res.sendStatus(404).json( {
         msg: 'no user exists'
       });
     }
@@ -69,7 +69,7 @@ exports.getUser = async (req, res) => {
     let user = await User.findById( req.params.id );
 
     if(!user) {
-      res.send(404).json( {
+      res.sendStatus(404).json( {
         msg: 'no user exists'
       });
     }
@@ -90,7 +90,7 @@ exports.deleteUser = async (req, res) => {
     let user = await User.findById( req.params.id );
 
     if(!user) {
-      res.send(404).json( {
+      res.sendStatus(404).json( {
         msg: 'no user exists'
       });
     }
@@ -99,6 +99,46 @@ exports.deleteUser = async (req, res) => {
     res.json({
       msg: 'User deleted'
     });
+
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('An error has occurred');
+  }
+
+}
+
+exports.checkEmail = async (req, res) => {
+
+  try {
+
+    let email = await User.find( { email: req.params.email } );
+    // res.json(email);
+    if( email.length == 0 ) {
+      res.send(true)
+    }else{
+      res.send(false)
+    }
+
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('An error has occurred');
+  }
+
+}
+
+exports.checkDni = async (req, res) => {
+
+  try {
+
+    let dni = await User.find( { dni: req.params.dni } );
+
+    if( dni.length == 0 ) {
+      res.send(true)
+    }else{
+      res.send(false)
+    }
+
+    // res.json(dni);
 
   } catch (error) {
     console.log(error);
