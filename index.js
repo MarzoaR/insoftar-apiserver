@@ -15,5 +15,5 @@ app.use(express.json());
 app.use('/api/users', require('./routes/user'));
 
 app.listen( process.env.PORT || 5000, () => {
-  console.log('server ok');
+  console.log('server ok, port: 5000');
 });
